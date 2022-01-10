@@ -24,8 +24,9 @@ function generatePassword() {
       (passlength!==passlength2)
       ){
     //reset password length to minimum and then prompt for a different input
+    password = "Please Try Again."
     window.alert("Your password must be an integer between 8 and 128 characters.  Please select a proper password length.");
-    return;
+    return password;
   }
 
   //create an array for what types of special characters to use.
