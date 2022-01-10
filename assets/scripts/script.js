@@ -4,14 +4,12 @@
 //will be used in the password generation function.  array is ete up as follows:
 //[special characters boolean, numbers boolean, upper case boolean, lower case boolean]
 var chartypearray = [];
-var password = ""; //will store the actual password
+var password;
 var passwordtext; 
-var counters = 0;
 var passlength = 8;
 var specarray = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~", "\\"];
 var lowerc = "abcdefghijklmnopqrstuvwxyz";
 var upperc = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var pchar;
 
 var generateBtn = document.querySelector("#generate");
 
@@ -35,13 +33,23 @@ function passLength(){
   return passlength;
 }
 
-//asks if the user wants special characters and stores the response in the
+//asks what type of characters to include in the passwordand stores the response in the
 //specialcharacter variable.
 function specialChars() {
+  let tc = 0;
   chartypearray[0] = window.confirm("Do you want to include Special Characters?");
   chartypearray[1] = window.confirm("Do you want to include Numbers?");
   chartypearray[2] = window.confirm("Do you want to include Upper Case Characters?");
   chartypearray[3] = window.confirm("Do you want to include Lower Case Characters?");
+  for (let i = 0; i < chartypearray.length; i++){
+    if (chartypearray[i]="true"){
+      tc++
+    }
+  }
+  if (tc==0){
+    alert("Please select at least one character type")
+    specialChars;
+  }
   console.log("The character type array is: " + chartypearray);
  
   return chartypearray;
@@ -68,7 +76,6 @@ function generatePassword() {
       }
       else if (chartypecheck == 3){
           pchar = upperc[Math.floor(Math.random()*26)];
-        Default: console.log("The switch isnt working");
       }      
       password += pchar;
     }
@@ -85,9 +92,8 @@ function generatePassword() {
 function writePassword() {
   passLength();
   specialChars();
-  generatePassword();
   passwordtext = document.querySelector("#password");
-  passwordtext.value = password;
+  passwordtext.value = generatePassword();
 }
 
 // Add event listener to generate button to exectue the password generation

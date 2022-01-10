@@ -42,6 +42,10 @@ header {
   padding: 30px 40px;
 }
 
+.card-header{
+    text-align: center;
+}
+
 .card-header::after {
   content: " ";
   display: block;
@@ -52,6 +56,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  text-align: center;
 }
 
 .card-footer {
@@ -62,7 +67,7 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  /* background: #e7e9eb; */
   height: 2px;
 }
 
@@ -74,11 +79,10 @@ header {
 
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: red;
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
-    0px;
-  color: hsl(0, 0%, 100%);
+  box-shadow: 5px 5px 5px grey;
+  color: white;
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
@@ -90,7 +94,7 @@ header {
 
 button[disabled] {
   cursor: default;
-  background: #c0c7cf;
+  background: red;
 }
 
 .float-right {
